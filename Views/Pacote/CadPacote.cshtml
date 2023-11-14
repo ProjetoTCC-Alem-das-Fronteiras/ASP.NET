@@ -1,0 +1,78 @@
+﻿@model AspViagens.Models.Banco.Pacote
+
+@{
+    ViewBag.Title = "CadPacote";
+}
+
+<h2>Cadastar Pacote de Viagem</h2>
+
+@using (Html.BeginForm("Inser_Planos", "Plano", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+     
+        <br />
+
+        <div class="form-group">
+            <div>
+                <label class="control-label col-md-2">Insira o Interesse</label>
+            </div>
+            @Html.DropDownList("nmPacote", ViewBag.nmPacote as List<SelectListItem>)            
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dsPreco, new { htmlAttributes = new { @class = "form-control input", placeholder = "Digite o Preço do Pacote" } })
+                @Html.ValidationMessageFor(model => model.dsPreco, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dsPacote, new { htmlAttributes = new { @class = "form-control input", placeholder = "Digite a Descrição do Pacote" } })
+                @Html.ValidationMessageFor(model => model.dsPacote, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <div>
+                <label class="control-label col-md-2" for="file">Imagem do Pacote</label>
+            </div>
+            <div class="col-md-10">
+                <input type="file" name="file" id="file" />
+                <br />
+                @if (TempData["Mensagem Erro Imagem1"] != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+                        @TempData["Mensagem Erro Imagem1"]
+                    </div>
+                }
+            </div>
+        </div>
+
+        <br />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Cadastrar Pacote" class="color btn btn-default azul" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Retornar a Página", "Index", "Home")
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

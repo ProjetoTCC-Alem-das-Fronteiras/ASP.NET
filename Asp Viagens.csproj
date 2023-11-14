@@ -268,6 +268,11 @@
     <Content Include="Views\Login\Cadastrar.cshtml" />
     <Content Include="Views\Login\Excluir.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Plano\EditarPlanoId.cshtml" />
+    <Content Include="Views\Plano\Inser_Planos.cshtml" />
+    <Content Include="Views\Plano\SaibaMaisPlanos.cshtml" />
+    <Content Include="Views\Pacote\CadPacote.cshtml" />
+    <Content Include="Views\Pacote\EditarPacoteId.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
