@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AspViagens.Models.Banco.Pacote>
+
+@{
+    ViewBag.Title = "Consultar Lucros";
+    List<string> dtcompPacote = ViewBag.dtcompPacote;
+    List<string> dspreçoPacote = ViewBag.dspreçoPacote;
+}
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+            google.charts.load('current', { 'packages': ['corechart'] });
+            google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var years = @Html.Raw(Json.Encode(ViewBag.dtcompPacote));
+            var sales = @Html.Raw(Json.Encode(ViewBag.dspreçoPacote));
+
+            // Combine os dados em um array bidimensional
+            var chartData = [['Datas', 'Vendas']];
+            for (var i = 0; i < years.length; i++) {
+                chartData.push([years[i], parseFloat(sales[i])]);
+            }
+
+            var data = google.visualization.arrayToDataTable(chartData);
+
+                var options = {
+                    title: 'Performace',
+                    curveType: 'function',
+                    legend: { position: 'bottom' }
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+                chart.draw(data, options);
+            }
+    </script>
+
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+    @Html.ActionLink("Voltar","ConsTdDetalhes")
+    @ViewBag.SomaValores;
+

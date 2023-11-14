@@ -84,3 +84,34 @@ C:\Users\3mod\Desktop\Asp Viagens\obj\Debug\Asp Viagens.csproj.CoreCompileInputs
 C:\Users\3mod\Desktop\Asp Viagens\obj\Debug\Asp Viagens.csproj.CopyComplete
 C:\Users\3mod\Desktop\Asp Viagens\obj\Debug\Asp Viagens.dll
 C:\Users\3mod\Desktop\Asp Viagens\obj\Debug\Asp Viagens.pdb
+C:\Users\3mod\Desktop\Asp Viagens\bin\BouncyCastle.Cryptography.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\Google.Protobuf.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\K4os.Compression.LZ4.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\K4os.Compression.LZ4.Streams.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\K4os.Hash.xxHash.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\MySql.Data.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.Buffers.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.Configuration.ConfigurationManager.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.IO.Pipelines.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.Memory.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.Numerics.Vectors.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\ZstdSharp.dll
+C:\Users\3mod\Desktop\Asp Viagens\bin\BouncyCastle.Cryptography.xml
+C:\Users\3mod\Desktop\Asp Viagens\bin\Google.Protobuf.pdb
+C:\Users\3mod\Desktop\Asp Viagens\bin\Google.Protobuf.xml
+C:\Users\3mod\Desktop\Asp Viagens\bin\K4os.Compression.LZ4.xml
+C:\Users\3mod\Desktop\Asp Viagens\bin\K4os.Compression.LZ4.Streams.xml
+C:\Users\3mod\Desktop\Asp Viagens\bin\K4os.Hash.xxHash.xml
+C:\Users\3mod\Desktop\Asp Viagens\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\3mod\Desktop\Asp Viagens\bin\MySql.Data.xml
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.Buffers.xml
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.IO.Pipelines.xml
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.Memory.xml
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.Numerics.Vectors.xml
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\3mod\Desktop\Asp Viagens\bin\System.Threading.Tasks.Extensions.xml

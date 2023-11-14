@@ -1,33 +1,112 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
-
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+﻿
+@{
+    ViewBag.Title = "Index"; 
+    }
+<div id="carouselExampleCaptions" class="carousel slide ">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-</main>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/Imagens/japao1.png" class="d-block w-100 carrossel" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="subtitulo">INTERCÂMBIO NO</h5>
+                <h1 class="titulo">Japão</h1>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/Imagens/singapura.png" class="d-block w-100 carrossel" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="subtitulo">INTERCÂMBIO EM</h5>
+                <h1 class="titulo">Singapura</h1>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/Imagens/irlanda1.png" class="d-block w-100 carrossel" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="subtitulo">INTERCÂMBIO NA</h5>
+                <h1 class="titulo">Irlanda</h1>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<h1 class="subtitulo1">A melhor experiencia em intercâmbio!</h1>
+
+<div class="categorias">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card">
+                <img src="https://horario.com.br/wp-content/uploads/2019/09/05_geha_blog_impacto_horario_escolar.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Educacional</h5>
+                    <p class="card-text">Nos programas de intercâmbio que incluem estudo do idioma + trabalho, os estudantes tem a permissão de trabalhar por um período de horas limitado por semana, enquanto estudam no turno inverso.</p>
+                    <a href="@Url.Action("SaibaMais","Home", new { id = 1 })" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://www.ludospro.com.br/wp-content/uploads/2023/02/Postura-profissional-4.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Profissional</h5>
+                    <p class="card-text">O programa de intercâmbio de estudo do idioma com foco em profissões é ideal para quem busca aprimorar o idioma e, além disso, focar no aprendizado de assuntos referentes à sua carreira.</p>
+                    <a href="@Url.Action("SaibaMais","Home", new { id = 2 })" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://emc.empresaspioneiras.com.br/dbimagens/turismo_brasil_1200x675_28072023182906.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Turismo</h5>
+                    <p class="card-text">Nos programas de intercâmbio de turismo são ideais para aquelas pessoas que sonham em conhecer novos países e culturas.</p>
+                    <a href="@Url.Action("SaibaMais","Home", new { id = 3 })" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<h1 class="subtitulo1">Os planos mais queridos!</h1>
+
+<div class="cartoes">
+    <div class="card-group">
+        <div class="card">
+            <img src="https://cursosnocanada.com.br/wp-content/uploads/sites/5/2013/09/toronto-1024x651.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Canadá</h5>
+                <p class="card-text">O Canadá é um país norte-americano que se estende desde os EUA, no sul, até o Círculo Polar Ártico, no norte. Entre suas grandes cidades estão a gigantesca Toronto; Vancouver, centro cinematográfico da costa oeste; Montreal e Québec City, que falam francês; e a capital, Ottawa.</p>
+                <a href="@Url.Action("SaibaMaisPlanos","Plano", new { id = 1 })" class="btn btn-primary">Saiba Mais</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://e4vwvaermbj.exactdn.com/wp-content/uploads/2022/03/portofino_blog01-mar22_grecia.jpg?strip=all&lossy=1&ssl=1" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Grécia</h5>
+                <p class="card-text">A Grécia é um país do sudeste da Europa com milhares de ilhas espalhadas pelos mares Egeu e Jônico. Bastante influente na antiguidade, a nação é considerada o berço da civilização ocidental. Atenas, sua capital, conserva monumentos como a Acrópole, do século V a.C., onde fica o templo Partenon.</p>
+                <a href="@Url.Action("SaibaMaisPlanos","Plano", new { id = 2 })" class="btn btn-primary">Saiba Mais</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://conexaoinglaterra.com/wp-content/uploads/2019/03/10-atra%C3%A7%C3%B5es-que-voc%C3%AA-precisa-conhecer-em-Londres.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Inglaterra</h5>
+                <p class="card-text">A Inglaterra, local de nascimento de Shakespeare e dos Beatles, é um país nas ilhas britânicas que faz fronteira com a Escócia e o País de Gales. A capital, Londres, situada às margens do rio Tâmisa, abriga o Parlamento, o Big Ben e a Torre de Londres, do século XI. .</p>
+                <a href="@Url.Action("SaibaMaisPlanos","Plano", new { id = 3 })" class="btn btn-primary">Saiba Mais</a>
+            </div>
+        </div>
+    </div>
+
+</div>

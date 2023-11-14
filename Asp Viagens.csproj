@@ -244,9 +244,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Carrinho.cshtml" />
+    <Content Include="Views\Home\confComp.cshtml" />
+    <Content Include="Views\Home\ConsTdDetalhes.cshtml" />
+    <Content Include="Views\Home\Detalhes.cshtml" />
+    <Content Include="Views\Home\Grafico.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Pagamento.cshtml" />
+    <Content Include="Views\Home\SaibaMais.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
