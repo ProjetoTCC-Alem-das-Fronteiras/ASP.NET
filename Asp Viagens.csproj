@@ -222,6 +222,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Imagens\img-index1.png" />
+    <Content Include="Imagens\singapura.png" />
+    <Content Include="Imagens\irlanda1.png" />
+    <Content Include="Imagens\japao1.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -246,6 +250,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Styles\login.css" />
+    <Content Include="Styles\carrinho.css" />
+    <Content Include="Styles\index.css" />
+    <Content Include="Styles\reset.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
