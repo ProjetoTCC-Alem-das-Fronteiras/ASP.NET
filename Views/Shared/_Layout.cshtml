@@ -1,17 +1,21 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Além das Fronteiras</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @model AspViagens.Models.login
+    @Scripts.Render("bootstrap.bundle.min.js/ bootstrap.bundle.js")
+    <link href="~/Styles/reset.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light">
         <div class="container">
-            @Html.ActionLink("Além das Fronteiras", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <b> @Html.ActionLink("Além das Fronteiras", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</b>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar a navegação" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -20,25 +24,25 @@
                 <ul class="navbar-nav flex-grow-1">
                     @if (Session["tipoLogado1"] == null && Session["tipoLogado2"] == null)
                     {
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <li class="nav-item">@Html.ActionLink("Login", "Login", "Login", new { area = "" }, new { @class = "nav-link laranja" })</li>
-                        </button>
-                        <li class="nav-item">@Html.ActionLink("Página Inicial", "Index", "Home", new { area = "" }, new { @class = "nav-link laranja" })</li>
+
+                        <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link laranja" })</li>
                         <li class="nav-item">@Html.ActionLink("Cadastrar", "Cadastrar", "Login", new { area = "" }, new { @class = "nav-link laranja" })</li>
-                        <li class="nav-item">@Html.ActionLink("Listar Pacotes", "SaibaMais", "Home", new { area = "" }, new { @class = "nav-link laranja" })</li>
+                        <li class="nav-item">@Html.ActionLink("Todos os Planos", "SaibaMais", "Home", new { area = "" }, new { @class = "nav-link laranja" })</li>
                         <li class="nav-item">@Html.ActionLink("Carrinho", "Carrinho", "Home", new { area = "" }, new { @class = "nav-link laranja" })</li>
+                        <button type="button" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
                     }
 
                     @if (Session["tipoLogado1"] != null)
                     {
-                        <li class="nav-item">@Html.ActionLink("Página Inicial", "Index", "Home", new { area = "" }, new { @class = "nav-link laranja" })</li>
+                        <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link laranja" })</li>
                         <li class="nav-item">@Html.ActionLink("Listar Pacotes", "SaibaMais", "Home", new { area = "" }, new { @class = "nav-link laranja" })</li>
                         <li class="nav-item">@Html.ActionLink("Carrinho", "Carrinho", "Home", new { area = "" }, new { @class = "nav-link laranja" })</li>
+
                     }
 
                     @if (Session["tipoLogado2"] != null)
                     {
-                        <li class="nav-item">@Html.ActionLink("Página Inicial", "Index", "Home", new { area = "" }, new { @class = "nav-link laranja" })</li>
+                        <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link laranja" })</li>
                         <li class="nav-item">@Html.ActionLink("Cadastrar", "Cadastrar", "Login", new { area = "" }, new { @class = "nav-link laranja" })</li>
                         <li class="nav-item">@Html.ActionLink("Excluir", "Excluir", "Login", new { area = "" }, new { @class = "nav-link laranja" })</li>
                         <li class="nav-item">@Html.ActionLink("Listar Pacotes", "SaibaMais", "Home", new { area = "" }, new { @class = "nav-link laranja" })</li>
@@ -48,142 +52,150 @@
 
                     @if (Session["tipoLogado1"] != null)
                     {
-                        <ul class="nav navbar-nav navbar-right">
-                            <br />
-                            <li style="color: red">
-                                Bem Vindo! @Session["dsLogin"]
-                                <span class="glyphicon glyphicon-log-in">
-                                    @Html.ActionLink("Sair", "Logout", "Login")
-                                    @Html.ActionLink("Meus Pedidos", "Detalhes", "Home")
-                                </span>
-                            </li>
-                        </ul>
+                      @Session["dsLogin"]
+                      @Html.ActionLink("Sair", "Logout", "Login")
+                      @Html.ActionLink("Meus Pedidos", "Detalhes", "Home")
+                          
                     }
                     @if (Session["tipoLogado2"] != null)
                     {
-                        <ul class="nav navbar-nav navbar-right">
-                            <br />
-                            <li style="color: red">
-                                Bem Vindo! @Session["dsLogin"]
-                                <span class="glyphicon glyphicon-log-in">
-                                    @Html.ActionLink("Sair", "Logout", "Login")
-                                </span>
-                            </li>
-                        </ul>
-                    }
-                </ul>
-               
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                         @Session["dsLogin"]
+                         @Html.ActionLink("Sair", "Logout", "Login")
+                     }
+                    </ul>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" <a href="#">content</a>ria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                Acessar conta
                             </div>
                             <div class="modal-body">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                @using (Html.BeginForm("VerificaUsuario", "Login", FormMethod.Post))
+                                {@Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.dsLogin, new { htmlAttributes = new { @class = "form-control input", placeholder = "Login" } })
+                                            @Html.ValidationMessageFor(model => model.dsLogin, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <br />
+                                        <div class="col-md-10">
+                                            @Html.PasswordFor(model => model.dsSenha, new { htmlAttributes = new { @class = "form-control input", placeholder = "Senha" } })
+                                            @Html.ValidationMessageFor(model => model.dsSenha, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="form-group">
+                                            @Html.ActionLink("Ainda não sou cadastrado", "Cadastrar", "Login")
+                                                <input type="submit" value="Entrar" class="btn-dark-blue" />
+                                        </div>
+                                        </div>
+                                    </div>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
+
+        </nav>
+        <div class=" " style="overflow: hidden">
+            @RenderBody()
+
         </div>
+        <!-- Footer -->
+        <footer class="text-center text-lg-start text-light"
+                style="background-color: #000003; padding: 2rem 0 0 0">
 
-       
-    </nav>
-    <div class=" " style="overflow: hidden">
-        @RenderBody()
+            <!-- Section: Links  -->
+            <section class="">
+                <div class="container text-center text-md-start mt-5">
+                    <!-- Grid row -->
+                    <div class="row mt-3">
+                        <!-- Grid column -->
+                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <!-- Content -->
+                            <h6 class="text-uppercase fw-bold">Além das Fronteiras</h6>
+                            <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #48D597; height: 2px" />
+                            <p>
+                                Os melhores pacotes de intercambio do mercado voce só encontra aqui.
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+                        <!-- Grid column -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold">Pacotes</h6>
+                            <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #48D597; height: 2px" />
+                            <p>
+                                <a href="#!" class="text-light">Canadá</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-light">Londres</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-light">Orlando</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-light">México</a>
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+                        <!-- Grid column -->
+                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
 
-    </div>
-    <!-- Footer -->
-    <footer class="text-center text-lg-start text-light"
-            style="background-color: #000003; padding: 2rem 0 0 0">
-       
-        <!-- Section: Links  -->
-        <section class="">
-            <div class="container text-center text-md-start mt-5">
-                <!-- Grid row -->
-                <div class="row mt-3">
-                    <!-- Grid column -->
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <!-- Content -->
-                        <h6 class="text-uppercase fw-bold">Além das Fronteiras</h6>
-                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                            style="width: 60px; background-color: #48D597; height: 2px" />
-                        <p>
-                           Os melhores pacotes de intercambio do mercado voce só encontra aqui.
-                        </p>
+                            <p>
+                                <a href="#!" class="text-light">Sua conta</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-light">Perguntas frequentes</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-light">Sobre nós</a>
+                            </p>
+                            <p>
+                                <a href="#!" class="text-light">Ajuda</a>
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+                        <!-- Grid column -->
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold">Contato</h6>
+                            <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                style="width: 60px; background-color: #48D597; height: 2px" />
+                            <p><i class="fas fa-home mr-3" style="color: #48D597"></i> São Paulo, SP 10012, BR</p>
+                            <p><i class="fas fa-envelope mr-3" style="color: #48D597"></i> alemdasfronteiras@contato.com</p>
+                            <p><i class="fas fa-phone mr-3" style="color: #48D597"></i> + 01 234 567 88</p>
+                            <p><i class="fas fa-print mr-3" style="color: #48D597"></i> + 01 234 567 89</p>
+                        </div>
+                        <!-- Grid column -->
                     </div>
-                    <!-- Grid column -->
-                    <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <!-- Links -->
-                        <h6 class="text-uppercase fw-bold">Pacotes</h6>
-                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                            style="width: 60px; background-color: #48D597; height: 2px" />
-                        <p>
-                            <a href="#!" class="text-light">Canadá</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-light">Londres</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-light">Orlando</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-light">México</a>
-                        </p>
-                    </div>
-                    <!-- Grid column -->
-                    <!-- Grid column -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <!-- Links -->
-                      
-                        <p>
-                            <a href="#!" class="text-light">Sua conta</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-light">Perguntas frequentes</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-light">Sobre nós</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-light">Ajuda</a>
-                        </p>
-                    </div>
-                    <!-- Grid column -->
-                    <!-- Grid column -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                        <!-- Links -->
-                        <h6 class="text-uppercase fw-bold">Contato</h6>
-                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                            style="width: 60px; background-color: #48D597; height: 2px" />
-                        <p><i class="fas fa-home mr-3" style="color: #48D597"></i> São Paulo, SP 10012, BR</p>
-                        <p><i class="fas fa-envelope mr-3" style="color: #48D597" ></i> alemdasfronteiras@contato.com</p>
-                        <p><i class="fas fa-phone mr-3" style="color: #48D597"></i> + 01 234 567 88</p>
-                        <p><i class="fas fa-print mr-3" style="color: #48D597"></i> + 01 234 567 89</p>
-                    </div>
-                    <!-- Grid column -->
+                    <!-- Grid row -->
                 </div>
-                <!-- Grid row -->
-            </div>
-        </section>
-        <!-- Section: Links  -->
-        <!-- Copyright -->
-        <div class="text-center p-3"
+            </section>
+            <!-- Section: Links  -->
+            <!-- Copyright -->
+            <div class="text-center p-3"
                                         <p>&copy; @DateTime.Now.Year - Além das Fronteiras</p>
                         </div>
-        <!-- Copyright -->
-    </footer>
-    <!-- Footer -->
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
 </html>
