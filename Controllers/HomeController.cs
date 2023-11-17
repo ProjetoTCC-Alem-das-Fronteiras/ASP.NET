@@ -25,7 +25,17 @@ namespace AspViagens.Controllers
         {
             return View();
         }
+        public ActionResult Login()
+        {
+
+            return View();
+        }
         public static string codigo;
+
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
 
         public ActionResult AdicionarCarrinho(string id)
         {
@@ -66,7 +76,15 @@ namespace AspViagens.Controllers
                 return RedirectToAction("Carrinho");
             }
         }
+        public ActionResult Logout()
+        {
+            Session["usuarioLogado"] = null;
+            Session["senhaLogado"] = null;
+            Session["tipoLogado1"] = null;
+            Session["tipoLogado2"] = null;
 
+            return RedirectToAction("Index", "Home");
+        }
         public ActionResult Carrinho()
         {
             modelCompra carrinho = Session["Carrinho"] != null ? (modelCompra)Session["Carrinho"] : new modelCompra();

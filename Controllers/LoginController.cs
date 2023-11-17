@@ -21,13 +21,6 @@ namespace AspViagens.Controllers
         AcDeletar AcD = new AcDeletar();
         Models.login login = new Models.login();
 
-        // metodo do login para ser criado a tela
-        public ActionResult Login()
-        {
-            
-            return View();
-        }
-
         // metodo verificarUsuario passando o model e passando usuario
         public ActionResult VerificaUsuario(Models.login user)
         {
@@ -49,7 +42,7 @@ namespace AspViagens.Controllers
                 else
                 {
                     Session["tipoLogado2"] = user.tipo.ToString();
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Dashboard", "Home");
                 }
 
             }
@@ -102,18 +95,7 @@ namespace AspViagens.Controllers
                 }
                 return View();
             }
-        }
-
-        // metodo para deslogar do login
-        public ActionResult Logout()
-        {
-            Session["usuarioLogado"] = null;
-            Session["senhaLogado"] = null;
-            Session["tipoLogado1"] = null;
-            Session["tipoLogado2"] = null;
-
-            return RedirectToAction("Index", "Home");
-        }
+        }     
 
         // metodo do Cadastro para ser criado a tela
         public ActionResult Cadastrar()
