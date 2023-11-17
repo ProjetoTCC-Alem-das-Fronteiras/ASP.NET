@@ -6,74 +6,21 @@
 
 <h2>@ViewBag.nnPlano</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nmPais)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nmCidade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dsCidade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dsClima)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dsEstadiaInicio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dsEstadiaTermino)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dsEstadiaTotal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dsMoeda)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dsIdiomaP)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dsIdiomaS)
-        </th>
-        <th></th>
-    </tr>
+<h4>   @Html.DisplayNameFor(model => model.dsCidade)</h4>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nmPais)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nmCidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dsCidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dsClima)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dsEstadiaInicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dsEstadiaTermino)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dsEstadiaTotal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dsMoeda)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dsIdiomaP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dsIdiomaS)
-        </td>
-    </tr>
-}
+<h2> moeda local?</h2>
+<h3>  @Html.DisplayNameFor(model => model.dsMoeda)</h3>
 
-</table>
+
+<h2> clima?</h2>
+<h3>  @Html.DisplayNameFor(model => model.dsClima)</h3>
+
+<h2> idioma local?</h2>
+<h3>  @Html.DisplayNameFor(model => model.dsIdiomaP)</h3>
+<h3>  @Html.DisplayNameFor(model => model.dsIdiomaS)</h3>
+
+
+<h2> estadia</h2>
+<h3> inicio   @Html.DisplayNameFor(model => model.dsEstadiaInicio)</h3>
+<h3> TERMINO    @Html.DisplayNameFor(model => model.dsEstadiaTermino)</h3>
+<h3> Total  @Html.DisplayNameFor(model => model.dsEstadiaTotal)</h3>

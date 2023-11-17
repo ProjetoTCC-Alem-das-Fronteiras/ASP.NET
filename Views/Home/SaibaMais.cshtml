@@ -3,13 +3,9 @@
     ViewBag.Title = "SaibaMais";
 }
 
-@if (ViewBag.nnPacote != null)
+@if (ViewBag.nnPlano != null)
 {
-    <h2>@ViewBag.nnPacote</h2>
-}
-else
-{
-    <h2>Todos os Pacote</h2>
+    <h2>@ViewBag.nnPlano</h2>
 }
 @if (TempData["Mensagem Erro ADM"] != null)
 {
@@ -18,78 +14,70 @@ else
         @TempData["Mensagem Erro ADM"]
     </div>
 }
-@if (TempData["Delete Erro"] != null)
+else
 {
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
-        @TempData["Delete Erro"]
-    </div>
-}
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nmPacote)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dsPreco)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dsPacote)
-        </th>
-    </tr>
+    <div class="container py-5">
+        @foreach (var item in Model)
+        {
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-12 col-xl-10">
+                    <div class="card shadow-0 border rounded-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                                    <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                                        <img src=@item.Imagem class="w-100" style="border-radius: 5px" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-6">
+                                    <h5>@item.nmPacote</h5>
+                                    <div class="d-flex flex-row">
+                                        <div class="text-danger mb-1 me-2">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mb-2 text-muted small">
+                                        <span>.</span>
+                                        <span class="text-primary"> • </span>
+                                        <span></span>
+                                    </div>
+                                    <p class="text-truncate mb-4 mb-md-0">
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nmPacote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dsPreco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dsPacote)
-            </td>
-            <div class="col-lg-3 col-md-6 mb-4" style="margin:2% 4%">
-                <div class="card h-100">
-                    @if (item.Imagem != null)
-                    {
-                        <img class="card-img-right flex-auto d-none d-md-block" data-src=" " alt="Thumbnail [300x300]"
-                             style="width: 300px; height:300px;" src="@item.Imagem"
-                             data-holder-rendered="true" />
-                    }
-                    else
-                    {
-                        <img class="card-img-right flex-auto d-none d-md-block" data-src=" " alt="Thumbnail [300x300]"
-                             style="width: 300px; height:300px;" src="@item.Imagem"
-                             data-holder-rendered="true" />
-                    }
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a>@item.nmPacote</a>
-                        </h4>
-                    </div>
-                    <div class="card-footer space-between-flex" style="width:90%">
-                        <div>
-                            @using (Html.BeginForm("AdicionarCarrinho", "Home", FormMethod.Post))
-                            {
-                                <input type="hidden" name="id" value="@item.IdPacote" />
-                                <button type="submit" class="color btn btn-default azul">Adicionar ao carrinho</button>
-                            }
+                                    </p>
+                                </div>
+                                <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                                    <div class="d-flex flex-row align-items-center mb-1">
+                                        <h4 class="mb-1 me-1">R$ @item.dsPreco</h4>
+
+                                    </div>
+                                    <h6 class="text-success"></h6>
+                                    @if (Session["tipoLogado2"] != null)
+                                    {
+                                        <div class="d-flex flex-column mt-4">
+                                            @Html.ActionLink("Editar", "EditarPlanosId", "Plano", new { id = item.IdPacote }, new { @class = "btn btn-warning btn-sm" })
+                                            @Html.ActionLink("Detalhes", "Details", new { id = item.IdPacote }, new { @class = "btn btn-primary btn-sm" })
+                                            @Html.ActionLink("Deletar ", "DeletarPlano", "Plano", new { id = item.IdPacote}, new { @class = "btn btn-danger btn-sm" })
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        using (Html.BeginForm("AdicionarCarrinho", "Home", FormMethod.Post))
+                                        {
+                                            <input type="hidden" name="id" value="@item.IdPacote" />
+                                            <button type="submit" class="color btn btn-default azul">Adicionar ao carrinho</button>
+                                        }
+                                    }
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            @if (Session["tipoLogado2"] != null)
-            {
-                <td>
-                    @Html.ActionLink("Editar", "EditarPacoteId", "Pacote", new { id = item.IdPacote }, new { onclick = "return confim('Deseja realmente editar?');" }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.IdPacote }) |
-                    @Html.ActionLink("Deletar Plano", "DeletarPacote", "Pacote", new { id = item.IdPacote }, new { onclick = "return confim('Deseja realmente excluir?');" })
-                </td>
-            }
-        </tr>
-    }
-
-</table>
+        }
+    </div>
+}
