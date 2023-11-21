@@ -28,7 +28,6 @@
 
                         <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                         <li class="nav-item">@Html.ActionLink("Todos os Planos", "SaibaMais", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("Cadastrar", "Cadastrar", "Login", new { area = "" }, new { @class = "nav-link" })</li>
                         @*<li class="nav-item">@Html.ActionLink("Carrinho", "Carrinho", "Home", new { area = "" }, new { @class = "nav-link" })</li>*@
 
                     }
@@ -40,18 +39,13 @@
                         <li class="nav-item">@Html.ActionLink("Carrinho", "Carrinho", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     }
 
-                    @if (Session["tipoLogado2"] != null)
-                    {
-                        <li class="nav-item">@Html.ActionLink("Dashboard", "Dashboard", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    }
 
                 </ul>
 
                 <div class="icons-nav">
-
                     @if (Session["tipoLogado1"] == null && Session["tipoLogado2"] == null)
                     {<i class="fa-solid fa-basket-shopping fa-xl login"></i>
-                        @Html.ActionLink(" ", "Login", "Home", new { @class ="fa-solid fa-user fa-xl login" })
+                        @Html.ActionLink(" ", "Login", "Home", new { @class = "fa-solid fa-user fa-xl login" })
                     }
                     else
                     {
@@ -61,18 +55,16 @@
                             @Html.ActionLink(" ", "Logout", "Home", new { @class = "fa-solid fa-right-to-bracket fa-xl login" })
                             @Html.ActionLink(" ", "Detalhes", "Home", new { @class = "fa-solid fa-basket-shopping fa-xl login" })
 
-                       }
+                        }
 
                         if (Session["tipoLogado2"] != null)
-                                {
-                                    @Session["dsLogin"]
+                        {
+                            @Session["dsLogin"]
+                            @Html.ActionLink("Painel", "Dashboard", "Home", new { area = "" }, new { @class = "nav-link" })
                             @Html.ActionLink(" ", "Logout", "Home", new { @class = "fa-solid fa-right-to-bracket fa-xl login" })
                         }
 
-                            }
-
-
-
+                    }
                 </div>
 
             </div>

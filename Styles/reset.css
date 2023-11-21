@@ -47,13 +47,17 @@ body {
 }
 
 /*BOTOES*/
-.btn-dark-blue {
+.btn-dark-blue, .btn-dark-blue-large {
     border-radius: 10px;
     background-color: #000033;
     padding: 0.7rem 1rem;
     text-decoration: none;
     border: none;
     color: white;
+}
+
+.btn-dark-blue-large{
+    width:16rem;
 }
 
 .btn-transp-carros {
@@ -82,3 +86,4 @@ body {
     border-radius: 10px;
     padding: 1.1rem 2rem ;
 }
+
