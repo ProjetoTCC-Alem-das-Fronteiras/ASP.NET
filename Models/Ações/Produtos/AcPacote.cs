@@ -11,6 +11,7 @@ using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using AspViagens.Dados;
 using AspViagens.Models.Banco;
+using Asp_Viagens.Models.Banco.Produtos;
 
 namespace AspViagens.Models.Ações
 {
@@ -399,6 +400,36 @@ namespace AspViagens.Models.Ações
                 }
             }
             return pacoteList;
+        }
+        public List<FiltrarPlanoPacote> FiltrarPlanoPacote(FiltrarPlanoPacote Fpl)
+        {
+            List<FiltrarPlanoPacote> FiltrarPlanoPacote = new List<FiltrarPlanoPacote>();
+
+            MySqlCommand cmd = new MySqlCommand("call sp_FiltrarPlanos(@p_nmPais,@p_valor1,@p_valor2,@p_interesse);", con.MyConectarBD());
+            cmd.Parameters.Add("@p_nmPais", MySqlDbType.VarChar).Value = Fpl.nmPais;
+            cmd.Parameters.Add("@p_valor1", MySqlDbType.VarChar).Value = Fpl.valor1;
+            cmd.Parameters.Add("@p_valor2", MySqlDbType.VarChar).Value = Fpl.valor2;
+            cmd.Parameters.Add("@p_interesse", MySqlDbType.VarChar).Value = Fpl.nmPacote;
+            MySqlDataAdapter sd = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            sd.Fill(dt);
+            con.MyDesConectarBD();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                FiltrarPlanoPacote.Add(
+                    new FiltrarPlanoPacote
+                    {
+                        IdPacote = Convert.ToString(dr["idPacote"]),
+                        nmPacote = Convert.ToString(dr["nmPacote"]),
+                        dsPreco = Convert.ToString(dr["dsPreco"]),
+                        dsPacote = Convert.ToString(dr["dsPacote"]),
+                        Imagem = Convert.ToString(dr["Imagem"]),
+                        nmPais = Convert.ToString(dr["nmPais"]),
+                    });
+            }
+            return FiltrarPlanoPacote;
         }
 
     }

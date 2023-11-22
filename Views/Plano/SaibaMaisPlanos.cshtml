@@ -6,21 +6,24 @@
 
 <h2>@ViewBag.nnPlano</h2>
 
-<h4>   @Html.DisplayNameFor(model => model.dsCidade)</h4>
+@foreach (var item in Model)
+{
+    <h4>   @item.dsCidade</h4>
 
-<h2> moeda local?</h2>
-<h3>  @Html.DisplayNameFor(model => model.dsMoeda)</h3>
-
-
-<h2> clima?</h2>
-<h3>  @Html.DisplayNameFor(model => model.dsClima)</h3>
-
-<h2> idioma local?</h2>
-<h3>  @Html.DisplayNameFor(model => model.dsIdiomaP)</h3>
-<h3>  @Html.DisplayNameFor(model => model.dsIdiomaS)</h3>
+    <h2> moeda local?</h2>
+    <h3>  @item.dsMoeda</h3>
 
 
-<h2> estadia</h2>
-<h3> inicio   @Html.DisplayNameFor(model => model.dsEstadiaInicio)</h3>
-<h3> TERMINO    @Html.DisplayNameFor(model => model.dsEstadiaTermino)</h3>
-<h3> Total  @Html.DisplayNameFor(model => model.dsEstadiaTotal)</h3>
+    <h2> clima?</h2>
+    <h3>  @item.dsClima</h3>
+
+    <h2> idioma local?</h2>
+    <h3> @item.dsIdiomaP</h3>
+    <h3> @item.dsIdiomaS </h3>
+
+
+    <h2> estadia</h2>
+    <h3> inicio   @item.dsEstadiaInicio  </h3>
+    <h3> TERMINO  @item.dsEstadiaTermino </h3>
+    <h3> Total    @item.dsEstadiaTotal   </h3>
+}

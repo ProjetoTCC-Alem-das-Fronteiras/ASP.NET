@@ -11,6 +11,7 @@ using System.Web.Mvc;
 using AspViagens.Models;
 using AspViagens.Models.Ações;
 using AspViagens.Models.Banco;
+using Asp_Viagens.Models;
 
 namespace AspViagens.Controllers
 {
@@ -22,18 +23,14 @@ namespace AspViagens.Controllers
         login login = new login();
         List<SelectListItem> Tipo_Pagamento = new List<SelectListItem>();
         public ActionResult Index()
-        {
-            return View();
-        }
-        public ActionResult Login()
-        {
-
+        {           
             return View();
         }
         public static string codigo;
 
         public ActionResult Dashboard()
         {
+            Grafico();
             return View();
         }
 
@@ -205,10 +202,6 @@ namespace AspViagens.Controllers
                 ViewBag.nnPacote = "Profissional";
                 return View(AcPacote.SelecionaProfissionalPacote());
             }
-            else if (id == null)
-            {
-                return View(AcPacote.ListarPacote());
-            }
             else
             {
                 ViewBag.nnPacote = "Turismo";
@@ -239,7 +232,7 @@ namespace AspViagens.Controllers
         }
 
         double valor = 0;
-        public ActionResult Grafico()
+        private void Grafico()
         {
             AcPacote.SelecionaidPacote();
             List<Pacote> idPacote = AcPacote.SelecionaidPacote();
@@ -264,12 +257,12 @@ namespace AspViagens.Controllers
                 apenasDatas.Add(parteDaData);
             }
 
-            List<DataItem> listaComb = apenasDatas.Zip(dspreço, (data, valor) => new DataItem { dsPreco = valor, Dtcomp = data }).ToList();
+            List<DataItem> listaComb = apenasDatas.Zip(dspreço, (data, valor) => new DataItem { dsPreco = valor, dtComp = data }).ToList();
 
-            listaComb = listaComb.OrderBy(item => item.Dtcomp).ToList();
+            listaComb = listaComb.OrderBy(item => item.dtComp).ToList();
 
             List<string> dspreço2 = listaComb.Select(p => p.dsPreco).ToList();
-            List<string> dtcomp2 = listaComb.Select(p => p.Dtcomp).ToList();
+            List<string> dtcomp2 = listaComb.Select(p => p.dtComp).ToList();
 
             ViewBag.dspreçoPacote = dspreço2;
             ViewBag.dtcompPacote = dtcomp2;
@@ -292,7 +285,6 @@ namespace AspViagens.Controllers
                 {
                     ViewBag.SomaValores = 0;
                 }          
-            return View();
         }
 
         [HttpPost]

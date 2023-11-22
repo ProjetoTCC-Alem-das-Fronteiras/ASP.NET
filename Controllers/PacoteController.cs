@@ -13,6 +13,7 @@ using System.Windows;
 using AspViagens.Models;
 using AspViagens.Models.Ações;
 using AspViagens.Models.Banco;
+using Asp_Viagens.Models.Banco.Produtos;
 
 namespace TCC_Viagens.Controllers
 {
@@ -21,6 +22,7 @@ namespace TCC_Viagens.Controllers
         AcPlano AcPl = new AcPlano();
         AcPacote AcP = new AcPacote();
         Plano CadP = new Plano();
+        FiltrarPlanoPacote fpl = new FiltrarPlanoPacote();
         List<SelectListItem> nmPacote = new List<SelectListItem>();
         public ActionResult CadPacote()
         {
@@ -122,6 +124,85 @@ namespace TCC_Viagens.Controllers
             {
                 TempData["Mensagem Erro Imagem"] = "É obrigatorio inserir uma imagem";
                 return RedirectToAction("EditarPacoteId", "Pacote");
+            }
+        }
+        public ActionResult ListarTodosPacotes()
+        {
+            return View(AcP.ListarPacote());
+        }
+        public ActionResult FiltrarTodosPacotes(string nmPacote, string nmPais, string valor)
+        {
+            if (nmPacote == "" && nmPais == "" && valor == "")
+            {
+                fpl.valor1 = "000";
+                fpl.valor2 = "000";
+                fpl.nmPacote = "erro";
+                fpl.nmPais = "erro";
+
+                return View(AcP.FiltrarPlanoPacote(fpl));
+            }
+            else if (nmPacote != "" && nmPais == "" && valor == "")
+            {
+                fpl.valor1 = "000";
+                fpl.valor2 = "000";
+                fpl.nmPacote = nmPacote;
+                fpl.nmPais = "erro";
+                return View(AcP.FiltrarPlanoPacote(fpl));
+            }
+            else if (nmPacote == "" && nmPais != "" && valor == "")
+            {
+                fpl.valor1 = "000";
+                fpl.valor2 = "000";
+                fpl.nmPacote = "erro";
+                fpl.nmPais = nmPais;
+                return View(AcP.FiltrarPlanoPacote(fpl));
+            }
+            else if (nmPacote == "" && nmPais == "" && valor != "")
+            {
+                string[] partes = valor.Split('/');
+                fpl.valor1 = partes[0];
+                fpl.valor2 = partes[1];
+
+                fpl.nmPacote = "erro";
+                fpl.nmPais = "erro";
+                return View(AcP.FiltrarPlanoPacote(fpl));
+            }
+            else if (nmPacote == "" && nmPais != "" && valor != "")
+            {
+                string[] partes = valor.Split('/');
+                fpl.valor1 = partes[0];
+                fpl.valor2 = partes[1];
+
+                fpl.nmPais = nmPais;
+                fpl.nmPacote = "erro";
+                return View(AcP.FiltrarPlanoPacote(fpl));
+            }
+            else if (nmPacote != "" && nmPais != "" && valor == "")
+            {
+                fpl.valor1 = "000";
+                fpl.valor2 = "000";
+                fpl.nmPais = nmPais;
+                fpl.nmPacote = nmPacote;
+                return View(AcP.FiltrarPlanoPacote(fpl));
+            }
+            else if (nmPacote != "" && nmPais == "" && valor != "")
+            {
+                string[] partes = valor.Split('/');
+                fpl.valor1 = partes[0];
+                fpl.valor2 = partes[1];
+                fpl.nmPais = "erro";
+                fpl.nmPacote = nmPacote;
+                return View(AcP.FiltrarPlanoPacote(fpl));
+            }
+            else
+            {
+                string[] partes = valor.Split('/');
+                fpl.valor1 = partes[0];
+                fpl.valor2 = partes[1];
+
+                fpl.nmPais = nmPais;
+                fpl.nmPacote = nmPacote;
+                return View(AcP.FiltrarPlanoPacote(fpl));
             }
         }
     }

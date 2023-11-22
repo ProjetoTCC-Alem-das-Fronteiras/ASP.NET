@@ -70,5 +70,10 @@ namespace AspViagens.Controllers
             Acp.EditarPlano(idPlano, plano);
             return RedirectToAction("SaibaMais", "Home");
         }
+
+        public ActionResult PlanosDsh()
+        {
+            return View();
+        }
     }
 }

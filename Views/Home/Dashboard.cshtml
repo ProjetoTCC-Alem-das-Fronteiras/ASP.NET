@@ -1,29 +1,22 @@
 ﻿<!-- Custom fonts for this template-->
 <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-      rel="stylesheet">
-
-<!-- Custom styles for this template-->
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 <link href="~/Content/css/sb-admin-2.min.css" rel="stylesheet">
-<style>
-    .bacana {
-        background-color: #000033;
-    }
-</style>
+<link href="~/Styles/dashboard.css" rel="stylesheet" />
 
 <!-- Page Wrapper -->
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav sidebar accordion bacana" id="accordionSidebar">
+    <ul class="navbar-nav sidebar accordion bacana" id="accordionSidebar" style="background-color:black; padding: 1rem;">
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
         <br />
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <i class="fas fa-fw fa-pencil"></i>
-            @Html.ActionLink("Dashboard", "Dashboard", "Home", new { area = "" }, new { @style = "color: white" })
+            <i class="fa-solid fa-house"></i>
+            @Html.ActionLink("Início", "Dashboard", "Home", new { area = "" }, new { @class = "list-text" })
         </li>
 
         <!-- Divider -->
@@ -36,47 +29,28 @@
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw Example of credit-card-alt fa-credit-card-alt"></i>
-                <span>Vendas</span>
-            </a>
+            <i class="fas fa-fw Example of credit-card-alt fa-credit-card-alt"></i>
+            @Html.ActionLink("Tabela Vendas", "ConsTdDetalhes", "Home", new { area = "" }, new { @class = "list-text" })
         </li>
-
+        <br />
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <i class="fas fa-fw fa-pencil"></i>
-            @Html.ActionLink("Cadastar Planos", "Inser_Planos", "Plano", new { area = "" }, new { @style = "color: white" })
-        </li>
-        <br />
-        <!-- Nav Item - Tables -->
-        @*<li class="nav-item">
-            <i class="fas fa-fw fa-pencil"></i>
-            @Html.ActionLink("Editar planos", "EditarPlanoId", "Plano", new { area = "" }, new { @style = "color: white" })
-        </li>
-        <br />*@
-        <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <i class="fas fa-fw fa-pencil"></i>
-            @Html.ActionLink("Todos os planos", "SaibaMais", "Home", new { area = "" }, new { @style = "color: white" })
+            <i class="fa-solid fa-inbox"></i>
+            @Html.ActionLink("Cadastar planos", "CadPcote", "Pacote", new { area = "" }, new { @class = "list-text" })
         </li>
         <br />
 
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-
-        <div class="sidebar-heading">
-            Contas
-        </div>
-        @*<br />
+        <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <i class="fas fa-fw fa-pencil"></i>
-            @Html.ActionLink("Excluir conta", "Excluir", "Login", new { area = "" }, new { @style = "color: white" })
+            <i class="fa-solid fa-list"></i>
+            @Html.ActionLink("Todos os planos", "ListarTodosPacotes", "Pacote", new { area = "" }, new { @class = "list-text" })
         </li>
         <br />
-        <li class="nav-item">
-            <i class="fas fa-fw fa-pencil"></i>
-            @Html.ActionLink("Novo administrador", "CadastrarADM", "Login", new { area = "" }, new { @style = "color: white" })
-        </li>*@
+        <li>
+            <i class="fa-solid fa-right-to-bracket"></i>
+            @Html.ActionLink("Sair", "Logout", "Home", new { @class = "list-text" })
+        </li>
+
 
     </ul>
     <!-- End of Sidebar -->
@@ -162,8 +136,41 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
                             </div>
                             <div class="card-body">
-                                <p>
-                                </p>
+
+                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                <script type="text/javascript">
+
+                                 google.charts.load('current', { 'packages': ['corechart'] });
+                                 google.charts.setOnLoadCallback(drawChart);
+
+                                function drawChart() {
+
+                                 var years = @Html.Raw(Json.Encode(ViewBag.dtcompPacote));
+                                 var sales = @Html.Raw(Json.Encode(ViewBag.dspreçoPacote));
+
+                                    // Combine os dados em um array bidimensional
+                                    var chartData = [['Datas', 'Vendas']];
+                                    for (var i = 0; i < years.length; i++) {
+                                        chartData.push([years[i], parseFloat(sales[i])]);
+                                     }
+
+                                    var data = google.visualization.arrayToDataTable(chartData);
+
+                                     var options = {
+                                        title: 'Performace',
+                                        curveType: 'function',
+                                         legend: { position: 'bottom' }
+                                     };
+
+                                    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+                                    chart.draw(data, options);
+                                    }
+                                </script>
+
+                                <body>
+                                    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+                                </body>
+
                             </div>
                         </div>
 
@@ -186,22 +193,4 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-
-
-<!-- Bootstrap core JavaScript-->
-<script src="~/Content/vendor/jquery/jquery.min.js"></script>
-<script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="~/Content/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="~/Content/js/sb-admin-2.min.js"></script>
-
-<!-- Page level plugins -->
-<script src="~/Content/vendor/chart.js/Chart.min.js"></script>
-
-<!-- Page level custom scripts -->
-<script src="~/Content/js/demo/chart-area-demo.js"></script>
-<script src="~/Content/js/demo/chart-pie-demo.js"></script>
 

@@ -20,7 +20,10 @@ namespace AspViagens.Controllers
         AcCadastro AcC = new AcCadastro();
         AcDeletar AcD = new AcDeletar();
         Models.login login = new Models.login();
-
+        public ActionResult Login()
+        {
+            return View();
+        }
         // metodo verificarUsuario passando o model e passando usuario
         public ActionResult VerificaUsuario(Models.login user)
         {
