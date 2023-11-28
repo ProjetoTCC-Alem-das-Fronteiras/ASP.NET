@@ -22,11 +22,6 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Planos
-        </div>
-
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
             <i class="fas fa-fw Example of credit-card-alt fa-credit-card-alt"></i>
@@ -36,7 +31,8 @@
         <!-- Nav Item - Charts -->
         <li class="nav-item">
             <i class="fa-solid fa-inbox"></i>
-            @Html.ActionLink("Cadastar planos", "CadPcote", "Pacote", new { area = "" }, new { @class = "list-text" })
+            @Html.ActionLink("Cadastar planos", "CadPacote", "Pacote", new { area = "" }, new { @class = "list-text" })
+
         </li>
         <br />
 
@@ -48,9 +44,8 @@
         <br />
         <li>
             <i class="fa-solid fa-right-to-bracket"></i>
-            @Html.ActionLink("Sair", "Logout", "Home", new { @class = "list-text" })
+            @Html.ActionLink("Sair", "Logout", "Home", new { area = "" }, new { @class = "list-text" })
         </li>
-
 
     </ul>
     <!-- End of Sidebar -->

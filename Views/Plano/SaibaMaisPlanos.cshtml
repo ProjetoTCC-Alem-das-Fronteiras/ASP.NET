@@ -3,27 +3,63 @@
 @{
     ViewBag.Title = "SaibaMaisPlanos";
 }
-
-<h2>@ViewBag.nnPlano</h2>
-
-@foreach (var item in Model)
-{
-    <h4>   @item.dsCidade</h4>
-
-    <h2> moeda local?</h2>
-    <h3>  @item.dsMoeda</h3>
+<link href="~/Styles/saibamaisPlanos.css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/f744b840f7.js" crossorigin="anonymous"></script>
 
 
-    <h2> clima?</h2>
-    <h3>  @item.dsClima</h3>
-
-    <h2> idioma local?</h2>
-    <h3> @item.dsIdiomaP</h3>
-    <h3> @item.dsIdiomaS </h3>
+<div class="container-xl container-fluid">
 
 
-    <h2> estadia</h2>
-    <h3> inicio   @item.dsEstadiaInicio  </h3>
-    <h3> TERMINO  @item.dsEstadiaTermino </h3>
-    <h3> Total    @item.dsEstadiaTotal   </h3>
-}
+
+    @foreach (var item in Model)
+    {
+        <div class="box-titulo">
+            <h2 class="titulo">@ViewBag.nnPlano</h2>
+            <h2 class="sub-carrossel">CONHEÇA:</h2>
+            <h4 class="dsCidade">   @item.dsCidade</h4>
+
+        </div>
+
+        <div class="faixa">
+            <div class="item">
+                <i class="fa-solid fa-coins fa-lg"></i>
+                <div class="item-text">
+                    <h6> moeda local:</h6>
+                    <h4 class="bold">  @item.dsMoeda</h4>
+                </div>
+            </div>
+
+            <div class="item">
+                <i class="fa-solid fa-sun fa-lg"></i>
+                <div class="item-text">
+                    <h6> clima:</h6>
+                    <h4 class="bold">  @item.dsClima</h4>
+                </div>
+            </div>
+
+            <div class="item">
+                <i class="fa-solid fa-comments fa-lg"></i>
+                <div class="item-text">
+                    <h6> idioma:</h6>
+                    <h4 class="bold">  @item.dsIdiomaP</h4>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="box-titulo box">
+            <h2 class="sub-carrossel"> ESTADIA: </h2>
+
+            <i class="fa-solid fa-plane-departure fa-2xl icon"></i>
+
+            <h6> Partida:</h6>
+            <h4 class="bold">   @item.dsEstadiaInicio</h4>
+
+            <h6> Retorno:</h6>
+            <h4 class="bold">   @item.dsEstadiaTermino</h4>
+
+            <h6> Tempo total:</h6>
+            <h4 class="bold">   @item.dsEstadiaTotal</h4>
+        </div>
+    }
+</div>

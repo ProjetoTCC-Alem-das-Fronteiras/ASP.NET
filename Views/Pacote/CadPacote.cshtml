@@ -37,19 +37,13 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Planos
-            </div>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw Example of credit-card-alt fa-credit-card-alt"></i>
-                    <span>Vendas</span>
-                </a>
+                <i class="fas fa-fw Example of credit-card-alt fa-credit-card-alt"></i>
+                @Html.ActionLink("Tabela Vendas", "ConsTdDetalhes", "Home", new { area = "" }, new { @class = "list-text" })
             </li>
-
+            <br />
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <i class="fa-solid fa-inbox"></i>
@@ -65,7 +59,7 @@
             <br />
             <li>
                 <i class="fa-solid fa-right-to-bracket"></i>
-                @Html.ActionLink("Sair", "Logout", "Home", new { @class = "list-text" })
+                @Html.ActionLink("Sair", "Logout", "Home", new { area = "" }, new { @class = "list-text" })
             </li>
 
 

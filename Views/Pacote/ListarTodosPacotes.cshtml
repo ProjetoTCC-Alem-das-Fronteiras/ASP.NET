@@ -4,74 +4,169 @@
     ViewBag.Title = "ListarTodosPacotes";
 }
 
-<h2>ListarTodosPacotes</h2>
 
-@using (Html.BeginForm("FiltrarTodosPacotes", "Pacote", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
+<!-- Custom fonts for this template-->
+<link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<link href="~/Content/css/sb-admin-2.min.css" rel="stylesheet">
+<link href="~/Styles/dashboard.css" rel="stylesheet" />
 
-    <div class="form-group">
-        <div class="col-md-10">
-            <input type="text" name="nmPacote" placeholder="Digite o interresse">
+
+
+
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav sidebar accordion bacana" id="accordionSidebar" style="background-color:black; padding: 1rem;">
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+        <br />
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+            <i class="fa-solid fa-house"></i>
+            @Html.ActionLink("Início", "Dashboard", "Home", new { area = "" }, new { @class = "list-text" })
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+ 
+
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <i class="fas fa-fw Example of credit-card-alt fa-credit-card-alt"></i>
+            @Html.ActionLink("Tabela Vendas", "ConsTdDetalhes", "Home", new { area = "" }, new { @class = "list-text" })
+        </li>
+        <br />
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+            <i class="fa-solid fa-inbox"></i>
+            @Html.ActionLink("Cadastar planos", "CadPacote", "Pacote", new { area = "" }, new { @class = "list-text" })
+        </li>
+        <br />
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <i class="fa-solid fa-list"></i>
+            @Html.ActionLink("Todos os planos", "ListarTodosPacotes", "Pacote", new { area = "" }, new { @class = "list-text" })
+        </li>
+        <br />
+        <li>
+            <i class="fa-solid fa-right-to-bracket"></i>
+            @Html.ActionLink("Sair", "Logout", "Home", new { area = "" }, new { @class = "list-text" })
+        </li>
+
+
+    </ul>
+    <!-- End of Sidebar -->
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div>
+
+            <div class="container-fluid">
+                <br />
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h2>Todos os pacotes</h2>
+                </div>
+
+                <!-- Content Row -->
+                <div class="row">
+
+
+                    @using (Html.BeginForm("FiltrarTodosPacotes", "Pacote", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="nmPacote" placeholder="Digite o interresse">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="nmPais" placeholder="Digite o nome do Pais">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="valor" placeholder="Digite um valor minimo e maximo, Exp:0/2000">
+                            </div>
+                        </div>
+
+                        <input type="submit" name="Filtrar">
+                        <br /> <br />
+                    }
+
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IdPacote)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nmPacote)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.dsPreco)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.dsPacote)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Imagem)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdPacote)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nmPacote)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.dsPreco)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.dsPacote)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Imagem)
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+
+
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
         </div>
+        <!-- End of Main Content -->
+
     </div>
+    <!-- End of Content Wrapper -->
 
-    <div class="form-group">
-        <div class="col-md-10">
-            <input type="text" name="nmPais" placeholder="Digite o nome do Pais">
-        </div>
-    </div>
+</div>
+<!-- End of Page Wrapper -->
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
 
-    <div class="form-group">
-        <div class="col-md-10">
-            <input type="text" name="valor" placeholder="Digite um valor minimo e maximo, Exp:0/2000">
-        </div>
-    </div>
 
-    <input type="submit" name="Filtrar">
-
-}
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IdPacote)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nmPacote)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dsPreco)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dsPacote)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Imagem)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdPacote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nmPacote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dsPreco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.dsPacote)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Imagem)
-            </td>
-            <td>
-            </td>
-        </tr>
-    }
-
-</table>

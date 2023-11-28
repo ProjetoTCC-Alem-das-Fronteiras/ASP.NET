@@ -270,6 +270,7 @@
     <Content Include="Styles\carrinho.css" />
     <Content Include="Styles\index.css" />
     <Content Include="Styles\dashboard.css" />
+    <Content Include="Styles\saibamaisPlanos.css" />
     <Content Include="Styles\reset.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
