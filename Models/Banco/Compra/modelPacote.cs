@@ -11,15 +11,16 @@ namespace AspViagens.Models.Banco
         public Guid PlanoPedidoID { get; set; }
 
         [DisplayName("Código Compra")]
-        public string idComp { get; set;}
+        public string idComp { get; set; }
 
         [DisplayName("Código Pacote")]
-        public string idPacote { get; set;}
+        public string idPacote { get; set; }
 
         [DisplayName("Pacote")]
-        public string nomePacote { get; set;}
+        public string nomePacote { get; set; }
 
         [DisplayName("Imagem")]
-        public string imagem { get; set;}
+        public string imagem { get; set; }
+        public string dsPreco { get; set; }
     }
 }

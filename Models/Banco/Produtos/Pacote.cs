@@ -31,6 +31,7 @@ namespace AspViagens.Models.Banco
         public string Imagem { get; set; }
 
         public string DataComp { get; set; }
+        public string idCom { get; set; }
 
         public double Valores { get; set; }
 

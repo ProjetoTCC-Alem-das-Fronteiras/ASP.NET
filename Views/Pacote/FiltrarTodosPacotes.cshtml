@@ -76,6 +76,9 @@
                 @Html.DisplayFor(modelItem => item.nmPais)
             </td>
             <td>
+                @Html.ActionLink("Editar", "EditarPlanosId", "Plano", new { id = item.IdPacote }, new { @class = "btn btn-warning btn-sm" })
+                @Html.ActionLink("Detalhes", "Details", new { id = item.IdPacote }, new { @class = "btn btn-primary btn-sm" })
+                @Html.ActionLink("Deletar ", "DeletarPlano", "Plano", new { id = item.IdPacote }, new { @class = "btn btn-danger btn-sm" })
             </td>
         </tr>
     }

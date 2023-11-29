@@ -237,6 +237,7 @@
     <Content Include="Content\js\demo\datatables-demo.js" />
     <Content Include="Content\js\sb-admin-2.js" />
     <Content Include="Content\js\sb-admin-2.min.js" />
+    <Content Include="Imagens\Design_sem_nome-removebg-preview.png" />
     <Content Include="Imagens\img-index1.png" />
     <Content Include="Imagens\singapura.png" />
     <Content Include="Imagens\irlanda1.png" />
@@ -301,6 +302,7 @@
     <Content Include="Views\Home\SaibaMais.cshtml" />
     <Content Include="Views\Pacote\FiltrarTodosPacotes.cshtml" />
     <Content Include="Views\Pacote\ListarTodosPacotes.cshtml" />
+    <Content Include="Views\Home\QuemSomos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

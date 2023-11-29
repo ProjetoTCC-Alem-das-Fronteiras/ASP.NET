@@ -3,9 +3,11 @@
 @{
     ViewBag.Title = "SaibaMaisPlanos";
 }
-<link href="~/Styles/saibamaisPlanos.css" rel="stylesheet" />
-<script src="https://kit.fontawesome.com/f744b840f7.js" crossorigin="anonymous"></script>
 
+<script src="https://kit.fontawesome.com/f744b840f7.js" crossorigin="anonymous"></script>
+<link href="~/Styles/index.css" rel="stylesheet" />
+<link href="~/Styles/reset.css" rel="stylesheet" />
+<link href="~/Styles/saibamaisPlanos.css" rel="stylesheet" />
 
 <div class="container-xl container-fluid">
 
@@ -14,15 +16,14 @@
     @foreach (var item in Model)
     {
         <div class="box-titulo">
-            <h2 class="titulo">@ViewBag.nnPlano</h2>
+            <h2 class="tituloPlano">@ViewBag.nnPlano</h2>
             <h2 class="sub-carrossel">CONHEÇA:</h2>
             <h4 class="dsCidade">   @item.dsCidade</h4>
-
         </div>
 
         <div class="faixa">
             <div class="item">
-                <i class="fa-solid fa-coins fa-lg"></i>
+                <i class="fa-solid fa-coins fa-lg icone"></i>
                 <div class="item-text">
                     <h6> moeda local:</h6>
                     <h4 class="bold">  @item.dsMoeda</h4>
@@ -30,7 +31,7 @@
             </div>
 
             <div class="item">
-                <i class="fa-solid fa-sun fa-lg"></i>
+                <i class="fa-solid fa-sun fa-lg icone"></i>
                 <div class="item-text">
                     <h6> clima:</h6>
                     <h4 class="bold">  @item.dsClima</h4>
@@ -38,7 +39,7 @@
             </div>
 
             <div class="item">
-                <i class="fa-solid fa-comments fa-lg"></i>
+                <i class="fa-solid fa-comments fa-lg icone"></i>
                 <div class="item-text">
                     <h6> idioma:</h6>
                     <h4 class="bold">  @item.dsIdiomaP</h4>
@@ -48,9 +49,8 @@
 
 
         <div class="box-titulo box">
-            <h2 class="sub-carrossel"> ESTADIA: </h2>
 
-            <i class="fa-solid fa-plane-departure fa-2xl icon"></i>
+            <i class="fa-solid fa-plane-departure fa-2xl icon icone"></i>
 
             <h6> Partida:</h6>
             <h4 class="bold">   @item.dsEstadiaInicio</h4>
@@ -61,5 +61,29 @@
             <h6> Tempo total:</h6>
             <h4 class="bold">   @item.dsEstadiaTotal</h4>
         </div>
+        <br /><br />
     }
 </div>
+
+<section class="hero">
+    <div class="container text-center">
+        <div class="col-md-12">
+            <h5 class="sub-carrossel">ENTRE EM CONTATO CONOSCO</h5>
+
+            <br />
+            <h5 class="text1">Tire todas as suas dúvidas com um consultor especializado</h5>
+            <br />
+            <form>
+                <input class="input100" type="text" name="email" placeholder="Digite seu email ">
+                <input class="input100" type="text" name="phone" placeholder="Digite seu telefone">
+                <br />
+                <br />
+                <textarea class="input100" name="message" placeholder="Sua mensagem aqui..."></textarea><br />
+                <button class="btn-dark-blue">
+                    <b>Enviar</b>
+                </button>
+
+            </form>
+        </div>
+    </div>
+</section>

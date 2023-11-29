@@ -41,12 +41,12 @@ else
                                         </div>
                                     </div>
                                     <div class="mb-2 text-muted small">
-                                        <span>.</span>
+                                        <span>@item.DataComp</span>
                                         <span class="text-primary"> • </span>
                                         <span></span>
                                     </div>
                                     <p class="text-truncate mb-4 mb-md-0">
-
+                                        @item.dsPacote
                                     </p>
                                 </div>
                                 <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
@@ -68,7 +68,7 @@ else
                                         using (Html.BeginForm("AdicionarCarrinho", "Home", FormMethod.Post))
                                         {
                                             <input type="hidden" name="id" value="@item.IdPacote" />
-                                            <button type="submit" class="color btn btn-default azul">Adicionar ao carrinho</button>
+                                            <button type="submit" class="btn btn-success">Adicionar ao carrinho</button>
                                         }
                                     }
 

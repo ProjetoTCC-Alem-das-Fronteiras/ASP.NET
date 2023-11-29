@@ -23,7 +23,7 @@ namespace AspViagens.Controllers
         login login = new login();
         List<SelectListItem> Tipo_Pagamento = new List<SelectListItem>();
         public ActionResult Index()
-        {           
+        {
             return View();
         }
         public static string codigo;
@@ -39,7 +39,7 @@ namespace AspViagens.Controllers
             if (Session["tipoLogado2"] != null)
             {
                 TempData["Mensagem Erro ADM"] = "Logado como administrador você não pode realizar compras.";
-                return RedirectToAction("SaibaMais");
+                return RedirectToAction("ListarTodosPacotes", "Pacote");
             }
             else
             {
@@ -57,6 +57,7 @@ namespace AspViagens.Controllers
                     planoCompra.idPacote = codigo;
                     planoCompra.nomePacote = plano[0].nomePacote;
                     planoCompra.imagem = plano[0].imagem;
+                    planoCompra.dsPreco = plano[0].dsPreco;
 
                     List<modelPacote> x = carrinho.PlanosPedidos.FindAll(l => l.idPacote == planoCompra.idPacote);
 
@@ -82,9 +83,11 @@ namespace AspViagens.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+        double soma;
         public ActionResult Carrinho()
         {
             modelCompra carrinho = Session["Carrinho"] != null ? (modelCompra)Session["Carrinho"] : new modelCompra();
+            ViewBag.soma = soma;
             return View(carrinho);
         }
 
@@ -123,6 +126,11 @@ namespace AspViagens.Controllers
 
         public ActionResult Confi_Pagamento(string Tipo_Pagamento)
         {
+            if (Session["tipoLogado1"] == null)
+            {
+                TempData["Mensagem Erro Carrinho"] = "So pode realizar compras quando estiver logado.Clique ao lado para logar: ";
+                return RedirectToAction("ListarTodosPacotes", "Pacote");
+            }
             string id_Cliente = Session["idCli"].ToString();
             int idCli = int.Parse(id_Cliente);
             AcCompra.Tipo_Pagamento(idCli, Tipo_Pagamento);
@@ -249,11 +257,11 @@ namespace AspViagens.Controllers
 
             List<string> apenasDatas = new List<string>();
             foreach (var dataCompleta in dtcomp)
-            {                
-                DateTime dataConvertida = DateTime.ParseExact(dataCompleta, "dd/MM/yyyy HH:mm:ss", null);
-               
+            {
+                DateTime dataConvertida = DateTime.Parse(dataCompleta);
+
                 string parteDaData = dataConvertida.ToString("dd/MM/yyyy");
-                
+
                 apenasDatas.Add(parteDaData);
             }
 
@@ -272,19 +280,19 @@ namespace AspViagens.Controllers
             {
 
                 if (Double.TryParse(modelo.dsPreco, out double valorConvertido))
-                {                  
+                {
                     valores.Add(valorConvertido);
-                } 
-            }
-                if (valores != null && valores.Count > 0)
-                {
-                    double soma = valores.Sum();
-                    ViewBag.SomaValores = soma;
                 }
-                else
-                {
-                    ViewBag.SomaValores = 0;
-                }          
+            }
+            if (valores != null && valores.Count > 0)
+            {
+                double soma = valores.Sum();
+                ViewBag.SomaValores = soma;
+            }
+            else
+            {
+                ViewBag.SomaValores = 0;
+            }
         }
 
         [HttpPost]
@@ -293,6 +301,11 @@ namespace AspViagens.Controllers
             Session["BotaoClicadoId"] = botaoId;
 
             return RedirectToAction("ConsTdDetalhes");
+        }
+
+        public ActionResult QuemSomos()
+        {
+            return View();
         }
     }
 }

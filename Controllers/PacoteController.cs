@@ -55,7 +55,7 @@ namespace TCC_Viagens.Controllers
             dsPreco = dsPreco.Replace(".", "").Replace(",", ".");
 
             AcP.InserirPacote(cp, cl,dsPreco);
-            return RedirectToAction("SaibaMais", "Home");
+            return RedirectToAction("ListarTodosPacotes", "Pacote");
 
         }
         public ActionResult DeletarPacote(string id, Plano plano)
@@ -70,7 +70,7 @@ namespace TCC_Viagens.Controllers
             {
                 TempData["Delete Erro"] = "Clientes já compraram esse pacote, não pode excluir";
             }
-            return RedirectToAction("SaibaMais", "Home");
+            return RedirectToAction("ListarTodosPacotes", "Pacote");
         }
 
         [HttpGet]
